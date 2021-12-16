@@ -3,23 +3,23 @@
 </template>
 
 <script>
-import store from '../store';
+import store from '../store'
 
 export default {
   data () {
-    return store;
+    return store
   },
   computed: {
     transform () {
-      let singleDigitWidth = 34;
-      let offset = this.activeIndex < 2
-                    ? this.activeIndex * singleDigitWidth
-                    : this.activeIndex * singleDigitWidth + singleDigitWidth;
+      const singleDigitWidth = 34
+      const offset = this.activeIndex < 2
+        ? this.activeIndex * singleDigitWidth
+        : this.activeIndex * singleDigitWidth + singleDigitWidth
 
       return {
-        transform: `translate3d(${offset}px, 0, 0)`
-      };
+        transform: `translate(${offset}px, 0)`
+      }
     }
   }
-};
+}
 </script>

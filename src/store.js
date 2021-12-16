@@ -9,14 +9,14 @@ const digits = [
   { value: 8, active: true, pressed: false },
   { value: 9, active: true, pressed: false },
   { value: 0, active: true, pressed: false }
-];
+]
 
 /*
  * Data object share between components
  */
 export default {
   activeIndex: 0,
-  time: null,
+  time: [],
   isOpen: false,
   digits: digits,
   arrowKeys: {
@@ -27,4 +27,4 @@ export default {
       pressed: false
     }
   }
-};
+}
