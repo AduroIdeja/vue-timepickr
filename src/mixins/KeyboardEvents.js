@@ -45,11 +45,12 @@ export default {
   },
 
   beforeDestroy () {
-    this.$el.removeEventListener('keyup')
-    this.$el.removeEventListener('keydown')
+    this.$el.removeEventListener('keyup', this.onKeyUp)
+    this.$el.removeEventListener('keydown', this.onKeyPressed)
   },
 
   methods: {
+    // TODO: fix keyboard events in vuetify
     onKeyUp (e) {
       if (isNumberPressed(e.keyCode, numberKeyCodes)) {
         const numberPressed = getNumberPressed(e.keyCode, numberKeyCodes)

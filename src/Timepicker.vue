@@ -60,9 +60,12 @@ export default {
   },
   methods: {
     open () {
+      this.activeIndex = 0
       this.$refs.timeInput.blur()
       this.$refs.timepicker.focus()
-      this.isOpen = true
+      this.$nextTick(() => {
+        this.isOpen = true
+      })
     },
     close () {
       this.setTime()
