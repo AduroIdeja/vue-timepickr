@@ -3,7 +3,7 @@
     <svg class="timepicker-icon timepicker-icon__clock" viewBox="0 0 32 32">
       <path class="path1" d="M20.586 23.414l-6.586-6.586v-8.828h4v7.172l5.414 5.414zM16 0c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16zM16 28c-6.627 0-12-5.373-12-12s5.373-12 12-12c6.627 0 12 5.373 12 12s-5.373 12-12 12z"></path>
     </svg>
-    <input type="text" class="time" ref="timeInput" :value="value" @focus="open">
+    <input type="text" class="time" ref="timeInput" :value="val" @focus="open">
     <div class="timepicker" tabindex="0" :class="{'is-open': isOpen}" ref="timepicker">
       <div class="timepicker__header">
         Set time
@@ -48,6 +48,14 @@ export default {
   computed: {
     filteredDigits () {
       return filteredDigits(this.activeIndex, this.digits, this.time)
+    },
+    val: {
+      get () {
+        return this.value
+      },
+      set (val) {
+        this.$emit('input', val)
+      }
     }
   },
   methods: {
@@ -61,10 +69,7 @@ export default {
       this.isOpen = false
     },
     setTime () {
-      this.$set(
-        'value',
-        `${this.time[0]}${this.time[1]}:${this.time[2]}${this.time[3]}`
-      )
+      this.val = `${this.time[0]}${this.time[1]}:${this.time[2]}${this.time[3]}`
     },
     digitPressed (digit) {
       const pressedDigit = getDigit(this.digits, digit)

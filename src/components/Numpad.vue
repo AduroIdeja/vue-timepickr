@@ -1,7 +1,7 @@
 <template>
   <div class="numpad">
     <div class="numpad__digits">
-      <div class="numpad__digit" v-for="digit in numbers" :key="digit">
+      <div class="numpad__digit" v-for="digit in numbers" :key="digit.value">
         <button :class="{ 'is-disabled': !digit.active}" :disabled="!digit.active" @click="digitSelected(digit.value)">
           {{ digit.value }}
         </button>

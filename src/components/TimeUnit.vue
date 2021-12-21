@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     resetState () {
-      this.$set('transitionClasses', {
+      this.$set(this.transitionClasses, {
         'transition-up': false,
         'transition-down': false
       })

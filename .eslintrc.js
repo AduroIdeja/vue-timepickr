@@ -9,5 +9,9 @@ module.exports = {
   ],
   parserOptions: {
     parser: 'babel-eslint'
+  },
+  rules: {
+    'no-console': process.env.NODE_ENV === 'development' ? 'warn' : 'error',
+    'no-debugger': process.env.NODE_ENV === 'development' ? 'warn' : 'error'
   }
 }
