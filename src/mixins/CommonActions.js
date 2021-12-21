@@ -31,7 +31,6 @@ export default {
 
       if (direction === 'up') {
         const nextValue = parseInt(this.time[this.activeIndex]) + 1
-        console.log(activeNumbers(this.filteredDigits))
         if (activeNumbers(this.filteredDigits).indexOf(nextValue) > -1) {
           this.$set(this.time, this.activeIndex, nextValue)
         }
